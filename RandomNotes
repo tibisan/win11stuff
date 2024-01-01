@@ -1,4 +1,4 @@
-
+brave://net-internals/#hsts
 
 Get-NetIPInterface | where {$_.InterfaceAlias -match 'vEthernet (Default Switch))'} | Set-NetIPInterface -Forwarding Enabled -Verbose
 
