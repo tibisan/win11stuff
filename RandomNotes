@@ -1,0 +1,21 @@
+
+
+Get-NetIPInterface | where {$_.InterfaceAlias -match 'vEthernet (Default Switch))'} | Set-NetIPInterface -Forwarding Enabled -Verbose
+
+
+Get-NetIPInterface | where {$_.InterfaceAlias -match 'vEthernet'} | Set-NetIPInterface -Forwarding Enabled -Verbose
+Get-NetIPInterface | where {$_.InterfaceAlias -match 'vEthernet'} | Select-Object ifIndex,InterfaceAlias,ConnectionState,Forwarding
+
+
+vEthernet (WSL (Hyper-V firewall))
+vEthernet (Default Switch)
+
+Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss
+
+Get-VMSwitch | Get-VMSwitchExtension
+Disable-VMSwitchExtension -VmSwitchName "WSL (Hyper-V firewall)" -Name "Microsoft Azure VFP Switch Filter Extension"
+
+PowerShell -ExecutionPolicy Bypass -Command "Disable-VMSwitchExtension -VmSwitchName 'WSL (Hyper-V firewall)' -Name 'Microsoft Azure VFP Switch Filter Extension'"
+
+
