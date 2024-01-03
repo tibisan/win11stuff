@@ -19,6 +19,17 @@ Disable-VMSwitchExtension -VmSwitchName "WSL (Hyper-V firewall)" -Name "Microsof
 PowerShell -ExecutionPolicy Bypass -Command "Disable-VMSwitchExtension -VmSwitchName 'WSL (Hyper-V firewall)' -Name 'Microsoft Azure VFP Switch Filter Extension'"
 
 Get-NetIPAddress | Format-Table -Property ifIndex,InterfaceAlias,IPAddress,PrefixLength,PrefixOrigin
+PS C:\Users\user> Get-NetIPAddress | Format-Table -Property I*,Prefi*
+
+ifIndex InstanceID InstallDate IPv4Address   IPv6Address IPVersionSupport InterfaceAlias                     InterfaceIndex IPAddress     PrefixOrigin PrefixLength
+------- ---------- ----------- -----------   ----------- ---------------- --------------                     -------------- ---------     ------------ ------------
+      1                                      ::1                          Loopback Pseudo-Interface 1                     1 ::1              WellKnown          128
+     54                        192.0.2.1                                  vEthernet (WSL (Hyper-V firewall))             54 192.0.2.1           Manual           24
+     37                        172.29.240.1                               vEthernet (Default Switch)                     37 172.29.240.1        Manual           20
+     10                        192.168.1.183                              Ethernet 2                                     10 192.168.1.183         Dhcp           24
+      1                        127.0.0.1                                  Loopback Pseudo-Interface 1                     1 127.0.0.1        WellKnown            8
+
+
 
 
 
