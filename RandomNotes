@@ -37,9 +37,9 @@ IANA private ranges
 
 100.64.0.0/10     100.64.0.0–100.127.255.255      4194304   Private network cgNAT
 
-192.0.2.0/24      192.0.2.0–192.0.2.255               256   Documentation
-198.51.100.0/24   198.51.100.0–198.51.100.255         256   Documentation
-203.0.113.0/24    203.0.113.0–203.0.113.255           256   Documentation
+192.0.2.0/24      192.0.2.0–192.0.2.255               256   Documentation TEST-NET-1
+198.51.100.0/24   198.51.100.0–198.51.100.255         256   Documentation TEST-NET-2
+203.0.113.0/24    203.0.113.0–203.0.113.255           256   Documentation TEST-NET-3
 
 198.18.0.0/15     198.18.0.0–198.19.255.255        131072   Private network benchmark testing
 
