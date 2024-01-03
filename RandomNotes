@@ -43,5 +43,9 @@ IANA private ranges
 
 198.18.0.0/15     198.18.0.0–198.19.255.255        131072   Private network benchmark testing
 
+Enable Nested Virtualization on vm in hyper v
+Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
+
+
 
 
