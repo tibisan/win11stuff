@@ -1,0 +1,64 @@
+cat /proc/cpuinfo
+root@EdgeRouter-Lite-3-Port:~# cat /proc/cpuinfo
+system type             : UBNT_E100
+machine                 : Unknown
+processor               : 0
+cpu model               : Cavium Octeon+ V0.1
+BogoMIPS                : 1000.00
+wait instruction        : yes
+microsecond timers      : yes
+tlb_entries             : 64
+extra interrupt vector  : yes
+hardware watchpoint     : yes, count: 2, address/irw mask: [0x0ffc, 0x0ffb]
+isa                     : mips1 mips2 mips3 mips4 mips5 mips64r2
+ASEs implemented        :
+shadow register sets    : 1
+kscratch registers      : 0
+package                 : 0
+core                    : 0
+VCED exceptions         : not available
+VCEI exceptions         : not available
+
+
+build in a WSL or other linux environment
+wget  https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
+extract in /tmp/
+export PATH=$PATH:/tmp/go/bin
+git clone https://github.com/cloudflare/cloudflared.git
+cd cloudflared/cmd/cloudflared
+
+
+#CGO_ENABLED=0 GOOS=linux GOARCH=mips64 go build -a -installsuffix cgo -ldflags '-s -w -extldflags "-static"' .
+#CGO_ENABLED=0 GOOS=linux GOARCH=mips64 go build .
+CGO_ENABLED=0 GOOS=linux GOARCH=mips64 go build -ldflags '-s -w -extldflags "-static"' .
+
+scp cloudflared binary to router and move it to /bin/
+
+
+sudo systemctl edit --force --full cloudflared.service
+put this into the file
+#--------START OF CLOUDFLARESERVICE UNIT FILE ------------
+sudo systemctl edit --force --full cloudflared.service
+
+[Unit]
+Description=Cloudflare Tunnel
+After=network.target
+Requires=basic.target
+Conflicts=rescue.service rescue.target
+After=basic.target rescue.service rescue.target
+
+
+[Service]
+TimeoutStartSec=0
+Type=notify
+ExecStart=/bin/cloudflared tunnel --protocol http2 --loglevel=debug --logfile=/var/log/cloudflared.log --no-autoupdate run --token <TOKEN_FROM_CLOUDFLARE_PORTAL>
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+#--------END  OF CLOUDFLARESERVICE UNIT FILE ------------
+
+systemctl enable cloudflared
+systemctl start cloudflared
+
