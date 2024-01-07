@@ -1,4 +1,8 @@
-fcportables.com
+fcportables.com great portable collection
+
+disable virtual box notification center
+VBoxManage setextradata global GUI/SuppressMessages "all"
+
 
 brave://net-internals/#hsts
 
