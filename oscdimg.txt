@@ -1,0 +1,10 @@
+create Windows boot ISO from source files
+
+Download Windows Assessment and Deployment Kit (Windows ADK) from https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
+
+Run as admin from start menu the "Deployment and Imaging Tools Environment" application - this will open a terminal
+
+Lets say that you have the windows source files uncpaked in C:\win11 and you want to create the ISO imange in c:\win11.iso you can use the command bellow for that
+
+oscdimg.exe -m -o -u2 -udfver102 -bootdata:2#p0,e,bC:\win11\boot\etfsboot.com#pEF,e,bC:\win11\efi\microsoft\boot\efisys.bin C:\win11 c:\win11.iso
+
