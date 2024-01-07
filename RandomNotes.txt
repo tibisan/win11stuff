@@ -21,6 +21,8 @@ cd 'C:\Program Files\Oracle\VirtualBox\'
 .\VBoxManage.exe setextradata global GUI/Input/HostKeyCombination  "162,164" 
 
 # VBoxManage getextradata global GUI/Input/HostKeyCombination
+.\VBoxManage.exe setextradata  global setvideomodehint "1024 768 24"
+\VBoxManage.exe setextradata global mouse ps2
 
 
 
