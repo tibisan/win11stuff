@@ -1,3 +1,6 @@
+Set High Performance Power plan in windows 11
+powercfg /s SCHEME_MIN 
+
 fcportables.com great portable collection
 
 disable virtual box notification center
