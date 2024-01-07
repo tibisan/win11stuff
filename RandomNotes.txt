@@ -10,9 +10,11 @@ powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 
 fcportables.com great portable collection
 
-disable virtual box notification center
- cd 'C:\Program Files\Oracle\VirtualBox\'
+# VirtualBox settings
+cd 'C:\Program Files\Oracle\VirtualBox\'
+# Disable virtual box notification center
 .\VBoxManage.exe setextradata global GUI/SuppressMessages "all"
+# Make VirtualBox VM Console GUI behave like VmWare - headeless with gui
 .\VBoxManage.exe setproperty defaultfrontend separate
 
 
