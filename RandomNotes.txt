@@ -14,8 +14,11 @@ fcportables.com great portable collection
 cd 'C:\Program Files\Oracle\VirtualBox\'
 # Disable virtual box notification center
 .\VBoxManage.exe setextradata global GUI/SuppressMessages "all"
-# Make VirtualBox VM Console GUI behave like VmWare - headeless with gui
+# Make VirtualBox VM Console GUI behave like VmWare 
+      # headeless with gui
 .\VBoxManage.exe setproperty defaultfrontend separate
+      # Ctrl Alt instead of Right Ctrl to exit console grab
+.\VBoxManage.exe setextradata global GUI/Input/HostKeyCombination  "162,164" 
 
 
 
