@@ -20,6 +20,9 @@ cd 'C:\Program Files\Oracle\VirtualBox\'
       # Ctrl Alt instead of Right Ctrl to exit console grab
 .\VBoxManage.exe setextradata global GUI/Input/HostKeyCombination  "162,164" 
 
+# VBoxManage getextradata global GUI/Input/HostKeyCombination
+
+
 
 
 brave://net-internals/#hsts
