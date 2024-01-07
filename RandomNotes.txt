@@ -11,7 +11,10 @@ powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 fcportables.com great portable collection
 
 disable virtual box notification center
-VBoxManage setextradata global GUI/SuppressMessages "all"
+ cd 'C:\Program Files\Oracle\VirtualBox\'
+.\VBoxManage.exe setextradata global GUI/SuppressMessages "all"
+.\VBoxManage.exe setproperty defaultfrontend separate
+
 
 
 brave://net-internals/#hsts
